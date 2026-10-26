@@ -1,0 +1,495 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>DocR3V — Getting started</title>
+    <!--
+      Source for docs/getting-started.odt. Edit this file, then regenerate:
+
+          ./scripts/make-guide.sh
+
+      Written for a reviewer with no technical background, so it explains things
+      a developer would consider obvious — where a download goes, what the
+      browser's warning means, why there is no "install" step. The styling is
+      deliberately plain: LibreOffice's HTML import only honours a subset of
+      CSS, and anything clever here turns into something worse in the ODT.
+    -->
+    <style>
+      body {
+        font-family: 'Liberation Serif', Georgia, serif;
+        font-size: 11pt;
+        line-height: 1.45;
+        color: #1f2937;
+        /*
+         * No page margin here. LibreOffice turns a body margin into an indent
+         * on every block it imports, tables included, which leaves the tables
+         * inset and their columns too narrow to hold a sentence. The ODT's own
+         * page style provides the margins instead.
+         */
+        margin: 0;
+      }
+      h1 {
+        font-family: 'Liberation Sans', Arial, sans-serif;
+        font-size: 22pt;
+        margin-bottom: 0.2cm;
+      }
+      h2 {
+        font-family: 'Liberation Sans', Arial, sans-serif;
+        font-size: 15pt;
+        margin-top: 0.9cm;
+        margin-bottom: 0.2cm;
+        border-bottom: 1px solid #d1d5db;
+        padding-bottom: 0.1cm;
+      }
+      h3 {
+        font-family: 'Liberation Sans', Arial, sans-serif;
+        font-size: 12pt;
+        margin-top: 0.6cm;
+        margin-bottom: 0.15cm;
+      }
+      .subtitle {
+        font-family: 'Liberation Sans', Arial, sans-serif;
+        font-size: 12pt;
+        color: #57606f;
+        margin-top: 0;
+      }
+      table {
+        border-collapse: collapse;
+        width: 100%;
+        margin: 0.4cm 0;
+      }
+      th,
+      td {
+        border: 1px solid #d1d5db;
+        padding: 0.18cm 0.25cm;
+        text-align: left;
+        vertical-align: top;
+      }
+      th {
+        background-color: #f3f4f6;
+        font-family: 'Liberation Sans', Arial, sans-serif;
+        font-size: 10pt;
+      }
+      .note {
+        background-color: #f5f3ff;
+        border-left: 3px solid #6d28d9;
+        padding: 0.25cm 0.35cm;
+        margin: 0.4cm 0;
+      }
+      .warn {
+        background-color: #fef3c7;
+        border-left: 3px solid #b45309;
+        padding: 0.25cm 0.35cm;
+        margin: 0.4cm 0;
+      }
+      code,
+      .url {
+        font-family: 'Liberation Mono', 'Courier New', monospace;
+        font-size: 10pt;
+      }
+      ol,
+      ul {
+        margin-top: 0.2cm;
+      }
+      li {
+        margin-bottom: 0.18cm;
+      }
+      .added {
+        color: #166534;
+        background-color: #a7f3c0;
+      }
+      .removed {
+        color: #b91c1c;
+        background-color: #fee2e2;
+        text-decoration: line-through;
+      }
+      .pagebreak {
+        page-break-before: always;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>DocR3V — Getting started</h1>
+    <p class="subtitle">
+      Comparing two versions of a document, word by word. Written for reviewers,
+      not for IT.
+    </p>
+
+    <p>
+      DocR3V takes two versions of the same document and shows you exactly which
+      words changed. Not "this paragraph was replaced" — the individual words. A
+      job title that became a different job title, a temperature that moved by
+      two degrees, a "must" that became a "should".
+    </p>
+
+    <p>
+      There is nothing to buy, nothing to license, and no account to create. This
+      guide takes about ten minutes to follow once.
+    </p>
+
+    <div class="note">
+      <p>
+        <strong>Your documents stay on your computer.</strong> DocR3V does the
+        comparison inside your web browser, on your own machine. The documents
+        you open are never uploaded, never sent anywhere, and never stored on
+        anyone else's computer. This is not a policy promise — the application is
+        built so that the browser itself blocks it from contacting the internet
+        at all. You can compare confidential documents on a machine with its
+        network cable unplugged, and everything works.
+      </p>
+    </div>
+
+    <h2>Step 1 — Choose how you want to use it</h2>
+
+    <p>There are two ways to get DocR3V. Both are free and neither needs help from IT.</p>
+
+    <table width="100%" border="1" cellspacing="0" cellpadding="5">
+      <colgroup>
+        <col width="22%" />
+        <col width="39%" />
+        <col width="39%" />
+      </colgroup>
+      <tr>
+        <th bgcolor="#f3f4f6">&nbsp;</th>
+        <th bgcolor="#f3f4f6">Option A — Use it in your browser</th>
+        <th bgcolor="#f3f4f6">Option B — Download one file</th>
+      </tr>
+      <tr>
+        <td><strong>What you do</strong></td>
+        <td>Click a link. It opens and works.</td>
+        <td>Download a single file, then double-click it whenever you need it.</td>
+      </tr>
+      <tr>
+        <td><strong>Do I install anything?</strong></td>
+        <td>No. You can optionally add an icon to your Start menu — see Step 2.</td>
+        <td>No. The file <em>is</em> the application.</td>
+      </tr>
+      <tr>
+        <td><strong>Do I need internet?</strong></td>
+        <td>Only the first time. After that it works offline.</td>
+        <td>Only to download it once. After that, never again.</td>
+      </tr>
+      <tr>
+        <td><strong>Do I need admin rights?</strong></td>
+        <td>No.</td>
+        <td>No.</td>
+      </tr>
+      <tr>
+        <td><strong>Best for</strong></td>
+        <td>Trying it out, everyday use, always having the newest version.</td>
+        <td>
+          Keeping a fixed copy alongside a comparison you have filed, or working
+          on a machine with no internet access.
+        </td>
+      </tr>
+    </table>
+
+    <p>
+      <strong>If you are not sure, start with Option A.</strong> It is the
+      quickest, and you can always download the file later.
+    </p>
+
+    <h2>Step 2 — Option A: use it in your browser</h2>
+
+    <ol>
+      <li>Open your web browser — Chrome, Edge, Firefox or Safari all work.</li>
+      <li>Go to the address below.</li>
+      <li>That is it. The application is on screen and ready to use. Skip to Step 4.</li>
+    </ol>
+
+    <p class="url">https://opengxptools.github.io/DocR3V/</p>
+
+    <div class="note">
+      <p>
+        <strong>Add it to your Start menu or dock (optional, 5 seconds).</strong>
+        In Chrome or Edge, look at the right-hand end of the address bar for a
+        small icon that looks like a screen with an arrow, or open the
+        <strong>⋮</strong> menu and choose <strong>Install</strong> (in Edge:
+        <strong>Apps ▸ Install this site as an app</strong>). On a Mac, Safari
+        does the same thing through <strong>File ▸ Add to Dock</strong>.
+      </p>
+      <p>
+        <strong>Firefox does not offer this.</strong> There is no icon to look
+        for, and nothing is wrong if you cannot find one. DocR3V still works
+        normally in a Firefox tab, and still works with no internet connection
+        once you have opened it — it simply stays inside the browser instead of
+        getting its own window. Bookmark the page and carry on, or use Option B.
+      </p>
+      <p>
+        This does not install software in the usual sense — nothing is added to
+        your computer's programs list and no administrator permission is asked
+        for. It simply gives DocR3V its own icon and its own window, without the
+        address bar and tabs. It also means the application keeps working when
+        you have no internet connection.
+      </p>
+    </div>
+
+    <h2>Step 3 — Option B: download the offline file</h2>
+
+    <p>
+      This gives you one file, roughly 400 KB, that contains the whole
+      application. Put it on a network drive, email it to a colleague, or keep it
+      in a validation folder — wherever it goes, double-clicking it opens a
+      working copy of DocR3V.
+    </p>
+
+    <p class="url">https://github.com/OpenGxPTools/DocR3V/releases/latest</p>
+
+    <ol>
+      <li>Go to the address above.</li>
+      <li>
+        You will see a page describing the newest version. Scroll down to the
+        heading <strong>Assets</strong>. It is a short list of files.
+      </li>
+      <li>
+        Click the file named <strong>DocR3V-1.0.0.html</strong> (the numbers will
+        be higher in newer versions). Your browser downloads it.
+      </li>
+      <li>
+        The file lands in your <strong>Downloads</strong> folder. Move it
+        somewhere you will find it again — your Documents folder, or your
+        desktop.
+      </li>
+      <li>
+        <strong>Double-click it.</strong> It opens in your web browser and DocR3V
+        is ready to use.
+      </li>
+    </ol>
+
+    <div class="warn">
+      <p>
+        <strong>Ignore the other files under Assets.</strong> "Source code (zip)"
+        and "Source code (tar.gz)" are for developers and will not do anything
+        useful for you. The file ending in <code>.sha256</code> is a fingerprint
+        used for record-keeping — see the last section.
+      </p>
+    </div>
+
+    <div class="warn">
+      <p>
+        <strong>If your browser warns you about the download.</strong> Some
+        browsers show a caution such as "This type of file can harm your
+        computer" for anything downloaded, including ordinary documents. Choose
+        <strong>Keep</strong>. If you would like to confirm the file is genuine
+        before opening it, the release page publishes its fingerprint — the last
+        section of this guide explains how to check it.
+      </p>
+    </div>
+
+    <div class="note">
+      <p>
+        <strong>To give it a proper icon.</strong> Right-click the file, choose
+        <strong>Send to ▸ Desktop (create shortcut)</strong> on Windows, or drag
+        it to your dock on a Mac. From then on it behaves like any other
+        application icon.
+      </p>
+    </div>
+
+    <h2>Step 4 — Compare two documents</h2>
+
+    <p>However you opened DocR3V, using it is the same.</p>
+
+    <ol>
+      <li>
+        <strong>Choose the original.</strong> Click the first box, labelled
+        <strong>Original</strong>, and pick the earlier version of your document.
+        You can also drag the file onto the box.
+      </li>
+      <li>
+        <strong>Choose the revised version.</strong> Do the same in the second
+        box, labelled <strong>Revised</strong>.
+      </li>
+      <li><strong>Click Compare.</strong></li>
+    </ol>
+
+    <p>
+      Word documents (<code>.docx</code>), OpenDocument files (<code>.odt</code>),
+      Markdown (<code>.md</code>) and plain text (<code>.txt</code>) can all be
+      compared, up to 5 MB each. PDFs cannot — save the document as Word or
+      OpenDocument first.
+    </p>
+
+    <h3>Reading the result</h3>
+
+    <p>The two versions appear side by side, with the changes marked:</p>
+
+    <table width="100%" border="1" cellspacing="0" cellpadding="5">
+      <colgroup>
+        <col width="30%" />
+        <col width="70%" />
+      </colgroup>
+      <tr>
+        <th bgcolor="#f3f4f6">What you see</th>
+        <th bgcolor="#f3f4f6">What it means</th>
+      </tr>
+      <tr>
+        <td><span class="removed">struck through, red</span></td>
+        <td>Text that was in the original and has been removed</td>
+      </tr>
+      <tr>
+        <td><span class="added">shaded, green</span></td>
+        <td>Text that is new in the revised version</td>
+      </tr>
+      <tr>
+        <td>A small ◇ marker</td>
+        <td>
+          The words did not change, but their formatting did — bold added, for
+          instance
+        </td>
+      </tr>
+    </table>
+
+    <p>
+      Along the top you will find a count of the changes, buttons to move to the
+      next and previous change, a <strong>Merged</strong> view that shows both
+      versions in a single column, and a <strong>Changes only</strong> tick box
+      that hides every paragraph that stayed the same.
+    </p>
+
+    <div class="note">
+      <p>
+        <strong>Know what is not checked.</strong> The
+        <strong>What is checked</strong> button lists exactly which kinds of
+        change DocR3V looks for and which it does not. It is worth reading once.
+        Font sizes, colours and page layout are <em>not</em> compared — so if
+        nothing is reported, that means no change of the kinds listed, not
+        "no change at all".
+      </p>
+    </div>
+
+    <h3>Keeping the result</h3>
+
+    <table width="100%" border="1" cellspacing="0" cellpadding="5">
+      <colgroup>
+        <col width="30%" />
+        <col width="70%" />
+      </colgroup>
+      <tr>
+        <th bgcolor="#f3f4f6">Button</th>
+        <th bgcolor="#f3f4f6">What you get</th>
+      </tr>
+      <tr>
+        <td><strong>Download HTML</strong></td>
+        <td>A self-contained report you can email, archive or open later</td>
+      </tr>
+      <tr>
+        <td><strong>Download ODT (tracked)</strong></td>
+        <td>
+          A Writer document with real tracked changes, so you can accept or
+          reject each one
+        </td>
+      </tr>
+      <tr>
+        <td><strong>Print / PDF</strong></td>
+        <td>
+          Your browser's print window — choose "Save as PDF" for a paginated,
+          signable copy
+        </td>
+      </tr>
+      <tr>
+        <td><strong>Copy redline</strong></td>
+        <td>The marked-up text on your clipboard, ready to paste into Writer or Word</td>
+      </tr>
+    </table>
+
+    <p>
+      Every report carries the DocR3V version that produced it. That matters if a
+      comparison is ever filed: the version identifies exactly which build made
+      it.
+    </p>
+
+    <h2>If something goes wrong</h2>
+
+    <table width="100%" border="1" cellspacing="0" cellpadding="5">
+      <colgroup>
+        <col width="38%" />
+        <col width="62%" />
+      </colgroup>
+      <tr>
+        <th bgcolor="#f3f4f6">What you see</th>
+        <th bgcolor="#f3f4f6">What to do</th>
+      </tr>
+      <tr>
+        <td>Double-clicking the downloaded file opens a text editor full of code</td>
+        <td>
+          Right-click it, choose <strong>Open with</strong>, and pick your web
+          browser. Tick "always use this" if offered.
+        </td>
+      </tr>
+      <tr>
+        <td>The page is blank or nothing happens when you click Compare</td>
+        <td>
+          Your browser may be an old version. Chrome, Edge, Firefox and Safari
+          from the last two years or so all work; Internet Explorer does not.
+        </td>
+      </tr>
+      <tr>
+        <td>"This file is too large"</td>
+        <td>
+          The limit is 5 MB per document. A document that big is usually carrying
+          large images; a copy with the images removed will compare fine, since
+          images are not compared anyway.
+        </td>
+      </tr>
+      <tr>
+        <td>"This document could not be read"</td>
+        <td>
+          The file may be damaged, password-protected, or not really the format
+          its name claims. Open it in Word or Writer and save a fresh copy.
+        </td>
+      </tr>
+      <tr>
+        <td>Your workplace blocks the website</td>
+        <td>
+          Use Option B. The downloaded file needs no internet connection and no
+          access to any website.
+        </td>
+      </tr>
+      <tr>
+        <td>The comparison looks wrong or misses something</td>
+        <td>
+          Check the <strong>What is checked</strong> list first — it may be a
+          kind of change DocR3V deliberately does not report.
+        </td>
+      </tr>
+    </table>
+
+    <h2>For quality and validation records</h2>
+
+    <p>
+      If a comparison is being filed as evidence, use <strong>Option B</strong>
+      and keep the downloaded file with the record. The reason is
+      reproducibility: the browser version updates itself over time, whereas the
+      downloaded file is fixed forever at the version it was built as, and will
+      produce the same comparison in five years as it does today.
+    </p>
+
+    <p>
+      Each release publishes a <strong>SHA-256 fingerprint</strong> — a long
+      string of letters and numbers, unique to that exact file. It lets anyone
+      confirm that an archived copy is byte-for-byte the file that was published.
+      To check a copy you hold, on Windows open Command Prompt and run:
+    </p>
+
+    <p><code>certutil -hashfile DocR3V-1.0.0.html SHA256</code></p>
+
+    <p>On macOS or Linux, open Terminal and run:</p>
+
+    <p><code>shasum -a 256 DocR3V-1.0.0.html</code></p>
+
+    <p>
+      The result should match the fingerprint on the release page exactly. If it
+      does not, download the file again.
+    </p>
+
+    <div class="warn">
+      <p>
+        <strong>DocR3V has not been validated for regulated use.</strong> It is a
+        review aid: it shows a reviewer where to look. Whether its output can
+        support a GMP decision is a question for your own validation process, and
+        this guide is not an answer to it.
+      </p>
+    </div>
+
+  </body>
+</html>

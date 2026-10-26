@@ -1,0 +1,47 @@
+name: Bug report
+description: Something in DocR3V does not work as described
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for reporting. **Do not attach real or confidential documents.** If the problem needs a
+        sample, make a small made-up pair of files that shows it.
+        Security problems: please follow SECURITY.md instead of opening an issue.
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened?
+      description: What you compared, what you expected the comparison to show, and what it showed instead.
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      placeholder: |
+        1. Open DocR3V (web version or offline file)
+        2. Choose … as the original and … as the revision
+        3. Click Compare and look at …
+    validations:
+      required: true
+  - type: dropdown
+    id: format
+    attributes:
+      label: File format
+      options: [DOCX, ODT, Markdown, Plain text, Mixed]
+  - type: input
+    id: version
+    attributes:
+      label: DocR3V version
+      description: Stamped in every exported report, and in the offline file's name.
+  - type: dropdown
+    id: route
+    attributes:
+      label: How you run it
+      options: [Web version, Installed from the web version, Offline .html file]
+  - type: input
+    id: browser
+    attributes:
+      label: Browser and operating system
+      placeholder: e.g. Chrome 140 on Windows 11

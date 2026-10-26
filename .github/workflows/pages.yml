@@ -1,0 +1,55 @@
+name: Deploy to GitHub Pages
+
+# The hosted app: what someone gets when they follow the link and click
+# "Install". Republished on every push to main, so the web version is always
+# the current one. The version-frozen artefact is the offline download, which
+# release.yml publishes per tag.
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Never two deploys at once, and never cancel one midway: a half-written Pages
+# deploy is a broken app for everyone currently on it.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - run: npm ci
+
+      - name: Build
+        # Project Pages serve from https://<user>.github.io/<repo>/, and the
+        # service worker has to be told that subdirectory is its scope — a
+        # worker registered at the wrong path controls nothing, and the app
+        # silently loses its offline behaviour.
+        env:
+          PUBLIC_BASE: /${{ github.event.repository.name }}/
+        run: npm run build
+
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+
+      - id: deployment
+        uses: actions/deploy-pages@v4

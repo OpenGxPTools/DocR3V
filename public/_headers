@@ -1,0 +1,8 @@
+# Response headers for hosts that read this file (Netlify, Cloudflare Pages).
+# GitHub Pages serves no custom headers and will simply ignore it; the page's
+# own <meta> Content-Security-Policy still applies everywhere, so nothing here
+# is load-bearing for the privacy guarantee. These are the two protections a
+# meta tag cannot express.
+/*
+  X-Content-Type-Options: nosniff
+  Content-Security-Policy: frame-ancestors 'none'

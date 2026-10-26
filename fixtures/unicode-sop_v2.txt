@@ -1,0 +1,11 @@
+PON-QA-017 — Gestion des déviations
+
+Température de stockage des échantillons de rétention : 15–25 °C, contrôlée en continu.
+
+Le directeur Assurance Qualité examine chaque déviation dans un délai de trois jours ouvrés.
+
+Anexo Ⅲ — Registro de desviaciones (§ 4.2, ¶ 7).
+
+保存期間：製品の有効期限に一年を加えた期間とする。
+
+Grenzwert: ≤ 0,2 µg/mL; Abweichung > 5 % ist meldepflichtig.

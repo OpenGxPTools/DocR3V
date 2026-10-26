@@ -1,0 +1,134 @@
+@import 'tailwindcss';
+
+/*
+ * Palette from spec §6.2, with one deliberate change: the specified grey for
+ * formatting notes (#9CA3AF) sits at 2.3:1 against white, which fails the WCAG
+ * AA requirement the same section sets. --colour-note is the darkest grey that
+ * still reads as secondary, at 4.8:1.
+ */
+@theme {
+  --color-ink: #1f2937;
+  --color-note: #57606f;
+  --color-removed: #b91c1c;
+  --color-removed-bg: #fee2e2;
+  --color-added: #15803d;
+  --color-added-bg: #dcfce7;
+
+  /*
+   * Inserted text has only its shading to mark it, so the shading has to show
+   * on a black-and-white printout: #A7F3C0 sits at 1.29:1 against white, where
+   * the paler row tint above manages 1.10. The text darkens with it to stay
+   * clear of WCAG AA — #166534 is 5.5:1 on this shading, where #15803D would
+   * fall to 3.9.
+   */
+  --color-added-mark: #166534;
+  --color-added-mark-bg: #a7f3c0;
+  --color-surface: #f9fafb;
+
+  /*
+   * Formatting notes get their own hue rather than another grey: a reviewer
+   * scanning a long SOP needs to spot them without reading them. Violet is far
+   * enough from the red/green change marks to never be mistaken for one, and
+   * #6D28D9 is 7.6:1 on white — clear of WCAG AA. As with the change marks the
+   * colour is never the only signal; the ◇ glyph carries it in greyscale.
+   */
+  --color-format: #6d28d9;
+  --color-format-bg: #f5f3ff;
+
+  --font-sans:
+    ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --font-document: ui-serif, Georgia, 'Times New Roman', serif;
+}
+
+html {
+  color-scheme: light;
+}
+
+body {
+  background: #fff;
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+}
+
+/*
+ * Change marks never signal by colour alone: a deletion is struck through and
+ * an insertion is shaded, so the diff survives greyscale printing and
+ * colour-blind readers. Both are semantic <del>/<ins> elements, which screen
+ * readers announce.
+ *
+ * An insertion is neither bold nor underlined. The views render the document's
+ * own bold and underline, and both are formatting changes the tool reports, so
+ * either mark would read as formatting in the document when it is not. The
+ * shading is what carries the meaning, which is why it is forced into print —
+ * browsers drop backgrounds by default.
+ */
+.mark-del {
+  background: var(--color-removed-bg);
+  color: var(--color-removed);
+  text-decoration: line-through;
+  text-decoration-thickness: 1px;
+  border-radius: 2px;
+  padding: 0 1px;
+}
+
+.mark-ins {
+  background: var(--color-added-mark-bg);
+  color: var(--color-added-mark);
+  /* <ins> is underlined by the browser unless told otherwise. */
+  text-decoration: none;
+  border-radius: 2px;
+  padding: 0 1px;
+}
+
+.mark-del,
+.mark-ins {
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+/* Tailwind has no small-caps utility; the document may still use them. */
+.small-caps {
+  font-variant-caps: small-caps;
+}
+
+/*
+ * Large documents. Spec §4 performance targets.
+ *
+ * A 500 KB SOP is ~2000 paragraphs, and the diff itself costs about 50 ms — the
+ * time goes on laying out and painting some 20,000 elements. `content-visibility`
+ * lets the browser skip that work for anything scrolled out of view, and
+ * `contain-intrinsic-size` supplies a placeholder height so the scrollbar stays
+ * honest and jumping between changes still lands in the right place.
+ *
+ * Deliberately not virtualisation: windowing would keep off-screen paragraphs
+ * out of the DOM entirely, which breaks find-in-page and printing. In a
+ * regulated review both matter more than the last millisecond — a reviewer who
+ * cannot Ctrl-F for a clause will not thank us for the frame rate.
+ */
+.row-shell {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 3.5rem;
+}
+
+@media print {
+  /* Skipped content has been known to print blank; a printed report missing
+     pages is far worse than a slow one. */
+  .row-shell {
+    content-visibility: visible;
+  }
+}
+
+/* Preserves the reviewer's place when jumping between changes. */
+.scroll-anchor {
+  scroll-margin-top: 7rem;
+}
+
+@media print {
+  .no-print {
+    display: none !important;
+  }
+
+  body {
+    font-size: 11pt;
+  }
+}

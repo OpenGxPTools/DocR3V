@@ -1,0 +1,73 @@
+SOP-QA-017 Deviation Management
+
+Effective date: 01 September 2026. Supersedes revision 4.
+
+1. Purpose
+
+This procedure defines the process for recording, investigating and closing deviations from approved manufacturing and quality control procedures at the site. It applies to planned and unplanned deviations affecting product quality, process consistency, data integrity or the validated state of equipment.
+
+Deviations relating to clinical trial material are covered by SOP-CT-004 and are outside the scope of this procedure.
+
+2. Responsibilities
+
+The Quality Assurance Director shall assess all deviations within three working days of notification and determine the classification. The classification decision shall be documented in the deviation record together with its justification.
+
+- Area Supervisor: raise the deviation record and secure any affected material.
+
+- Investigation Owner: complete the root cause investigation and propose corrective actions.
+
+- Qualified Person: confirm that no affected batch is certified until the deviation is closed.
+
+3. Procedure
+
+Any employee who identifies a deviation shall notify their supervisor immediately and, in any case, within four hours of identification.
+
+The Area Supervisor shall raise a deviation record in the quality management system within one working day. The record shall describe what happened, when it was identified, which batches or systems are affected, and what immediate action was taken to contain the issue.
+
+Deviations classified as critical shall be escalated to the Site Head and to the Qualified Person on the day of classification. A critical deviation shall not be closed without a documented product impact assessment.
+
+Corrective and preventive actions shall be assigned an owner and a target date. Extension of a target date requires the written approval of the Quality Assurance Director and a justification recorded against the action. No action may be extended more than twice.
+
+4. Classification
+
+Deviations shall be classified as critical, major or minor. Classification determines the depth of investigation required, the approval level for closure and the reporting obligations to management. The classification shall be reviewed once the investigation is complete and revised if the findings warrant it.
+
+A critical deviation is one that has caused, or could reasonably have caused, a product to fail to meet its registered specification, that represents a significant breach of Good Manufacturing Practice, or that affects the integrity of GMP-relevant data. Critical deviations require a full root cause investigation using a structured methodology.
+
+A major deviation is one that could affect product quality but where the available evidence indicates no impact on the registered specification. A minor deviation is one with no foreseeable product quality impact, typically a documentation or procedural error identified and corrected at the point of occurrence.
+
+Three or more minor deviations of the same type within a rolling twelve-month period shall be escalated to major and investigated as a trend.
+
+5. Investigation
+
+The investigation shall establish the sequence of events, the immediate cause and the root cause. Evidence shall be gathered from batch records, equipment logs, electronic data, training records and interviews with the personnel involved. All evidence reviewed shall be referenced in the investigation report.
+
+Investigations for critical deviations shall be completed within twenty calendar days of the deviation being raised. Where this is not achievable, an interim report shall be issued and an extension approved by the Quality Assurance Director, with the reason for the delay documented.
+
+Human error shall not be recorded as a root cause unless the investigation has established why the error was possible and why existing controls did not prevent it. Where human error is confirmed, the investigation shall assess the adequacy of the procedure, the training and the working environment.
+
+The investigation report shall state whether other batches, products or systems are potentially affected, and shall document the basis for that conclusion.
+
+6. Product Impact Assessment
+
+A product impact assessment shall be performed for every critical and major deviation. The assessment shall consider the affected batch, batches manufactured on the same equipment since the last verified clean, and any batch that shares the affected raw material lot.
+
+The assessment shall be performed by a subject matter expert independent of the area in which the deviation occurred and shall be approved by the Quality Assurance Director. Where the deviation affects sterility assurance, the assessment shall additionally be reviewed by the Microbiology Lead.
+
+Where the assessment concludes that product quality may be affected, the affected material shall be placed on hold and shall not be released until the deviation is closed and a disposition decision has been recorded.
+
+7. Corrective and Preventive Action
+
+Corrective actions address the specific occurrence. Preventive actions address the potential for recurrence across the site. Every critical deviation shall result in at least one preventive action, or a documented justification for why none is required.
+
+The effectiveness of preventive actions shall be verified no earlier than three months after implementation. Effectiveness verification shall use objective evidence, such as deviation rates, in-process data or audit findings, and shall not rely solely on confirmation that the action was completed.
+
+Where effectiveness cannot be demonstrated, the deviation shall be reopened and a further investigation performed.
+
+8. Closure and Records
+
+A deviation may be closed when the investigation is complete, the product impact assessment is approved, all corrective actions are implemented, and preventive actions are approved with target dates assigned. Closure requires the signature of the Quality Assurance Director.
+
+Deviation records, investigation reports, impact assessments and effectiveness verifications shall be retained for the shelf life of the affected product plus one year, and in no case for less than six years.
+
+A summary of open and closed deviations shall be presented at the monthly quality review meeting, including any action overdue by more than fourteen days.
